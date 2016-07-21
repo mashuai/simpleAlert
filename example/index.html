@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../dist/css/simplealert.css">
+    <script src="../dist/js/simplealert.js"></script>
+</head>
+<body>
+<script>
+    window.onload = function(){
+        var confirm = document.querySelector(".confirm");
+        confirm.addEventListener("click", function(event){
+            var options = {
+                okValue: 'Ok',
+                cancelValue: 'Cancel',
+                title: "delete it? ",
+                content: 'Delete can not recovery',
+                ok: function(event){console.log('ok')},
+                cancel: function(event){console.log('cancel')},
+                context: document.querySelector("div"),
+//                context: document.body,
+                addShade:true
+            };
+            simpleAlert.confirm(options);
+            event.preventDefault();
+        });
+        var alert = document.querySelector(".alert");
+        alert.addEventListener("click", function(event){
+            var options = {
+                okValue: "Ok",
+                content: "Delete can't recover",
+                context: document.querySelector("div"),
+                addShade: true
+            };
+            simpleAlert.alert(options);
+        });
+        var prompt = document.querySelector(".prompt");
+        prompt.addEventListener("click", function(event){
+            var options = {
+                okValue: 'Ok',
+                cancelValue: 'Cancel',
+                title: "what's your name?",
+                defaultValue: 'input your name',
+                ok: function(event){console.log(event.promptVlaue)},
+                cancel: function(event){console.log('cancel')},
+                context: document.querySelector("div"),
+//                context: document.body,
+                addShade:true
+            };
+            simpleAlert.prompt(options);
+        });
+    };
+</script>
+<a class="confirm" href="#">confirm</a>
+<a class="alert" href="#">alert</a>
+<a class="prompt" href="#">prompt</a>
+<div style="width: 800px;height: 400px; background-color: white; position: relative;">
+</div>
+</body>
+</html>
